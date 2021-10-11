@@ -7,7 +7,7 @@
       {{ incorrectCount }}
     </p>
     <div class="n-icon">
-      <i class="fa fa-smile-o" aria-hidden="true"></i>
+      <i :class="['fa', icon]" aria-hidden="true"></i>
     </div>
     <div class="n-buttons">
       <button>Old</button>
@@ -17,14 +17,25 @@
 </template>
 
 <script>
+import FONT_AWESOME_ICONS from '../js/font-awesome-icons.js';
 export default {
   name: 'NewIcon',
   data() {
-    return { correctCount: 0, incorrectCount: 0 };
+    return {
+      correctCount: 0,
+      incorrectCount: 0,
+      iconIndex: 0,
+      iconSource: FONT_AWESOME_ICONS.sort(() => Math.random() - 0.5)
+        .slice(0, 120)
+        .map((icon, idx) => ({ idx: idx, icon: icon, new: true })),
+    };
   },
   computed: {
     score: function () {
       return this.correctCount - this.incorrectCount;
+    },
+    icon: function () {
+      return this.iconSource[this.iconIndex].icon;
     },
   },
 };
@@ -34,30 +45,32 @@ export default {
 .n-outer {
   display: flex;
   flex-direction: column;
+  gap: 24px;
 }
 .n-icon {
   align-self: center;
-  margin-bottom: 12px;
 }
 i {
   font-size: 600px;
 }
 .n-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 button {
+  flex-grow: 1;
+  max-width: 36%;
   padding: 24px;
   font-size: 36px;
 }
-@media (max-width: 720px) {
+@media (max-width: 800px) {
   i {
-    font-size: 400px;
+    font-size: 320px;
   }
 }
 @media (max-width: 400px) {
   i {
-    font-size: 320px;
+    font-size: 240px;
   }
   button {
     padding: 16px;
