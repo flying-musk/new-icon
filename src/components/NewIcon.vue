@@ -3,13 +3,14 @@
     <div :class="['n-veil', 'n-veil-correct', veilCorrect]"></div>
     <div :class="['n-veil', 'n-veil-incorrect', veilIncorrect]"></div>
     <h1>New Icon</h1>
-    <h2>Please identify the new icons.</h2>
+    <div>Please identify the new icons.</div>
     <p>
-      Current score: {{ score }}, correct: {{ correctCount }}, incorrect:
+      Current score: <span class="n-score">{{ score }}</span
+      >, correct: {{ correctCount }}, incorrect:
       {{ incorrectCount }}
     </p>
     <div class="n-icon">
-      <i :class="['fa', icon]" aria-hidden="true"></i>
+      <i :class="['fa', icon]"></i>
     </div>
     <div class="n-space"></div>
     <div class="n-buttons">
@@ -99,6 +100,9 @@ export default {
 .n-veil-show {
   opacity: 1;
 }
+.n-score {
+  font-size: 32px;
+}
 .n-icon {
   align-self: center;
   border: solid 1px #dddddd;
@@ -107,6 +111,7 @@ export default {
   padding: 24px;
 }
 i {
+  color: #444444;
   font-size: 320px;
 }
 .n-space {
