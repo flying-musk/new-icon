@@ -37,6 +37,7 @@ export default {
 }
 .n-icon {
   align-self: center;
+  margin-bottom: 12px;
 }
 i {
   font-size: 600px;
@@ -48,5 +49,19 @@ i {
 button {
   padding: 24px;
   font-size: 36px;
+}
+@media (max-width: 720px) {
+  i {
+    font-size: 400px;
+  }
+}
+@media (max-width: 400px) {
+  i {
+    font-size: 320px;
+  }
+  button {
+    padding: 16px;
+    font-size: 28px;
+  }
 }
 </style>
