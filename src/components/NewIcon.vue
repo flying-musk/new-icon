@@ -9,6 +9,7 @@
     <div class="n-icon">
       <i :class="['fa', icon]" aria-hidden="true"></i>
     </div>
+    <div class="n-space"></div>
     <div class="n-buttons">
       <button>Old</button>
       <button>New</button>
@@ -45,13 +46,21 @@ export default {
 .n-outer {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 .n-icon {
   align-self: center;
+  border: solid 1px #dddddd;
+  border-radius: 4px;
+  filter: drop-shadow(0px 2px 4px rgba(196, 196, 196, 0.35));
+  padding: 24px;
 }
 i {
-  font-size: 600px;
+  font-size: 320px;
+}
+.n-space {
+  align-self: center;
+  width: 24px;
+  height: 24px;
 }
 .n-buttons {
   display: flex;
@@ -62,11 +71,6 @@ button {
   max-width: 36%;
   padding: 24px;
   font-size: 36px;
-}
-@media (max-width: 800px) {
-  i {
-    font-size: 320px;
-  }
 }
 @media (max-width: 400px) {
   i {
